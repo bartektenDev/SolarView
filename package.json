@@ -25,5 +25,16 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^4.0.1"
-  }
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bartektenDev/SolarView.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bartektenDev/SolarView/issues"
+  },
+  "homepage": "https://github.com/bartektenDev/SolarView#readme"
 }

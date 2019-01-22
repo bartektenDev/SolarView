@@ -44,7 +44,7 @@ app.on('ready', function(){
   mainWindow.setMenu(null);
   if(process.env.NODE_ENV == 'development'){
     //enable dev tools
-    //mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
   }
 
   //this handles the redirect information from the server we request data from
