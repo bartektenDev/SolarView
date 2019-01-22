@@ -1,5 +1,7 @@
 # SolarView
 
+**Status:** Alpha v 1.0.0
+
 **What is it?**
 This is software for Enecsys Solar Panels Inverters. A better alternative compared to ALL other competitors.
 It is free to use, and all license are registered to Bart Tarasewicz.
