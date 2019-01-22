@@ -4,7 +4,7 @@
   "description": "A solar panel utility for Enecsys solar panels that displays info from the inverter(s).",
   "main": "main.js",
   "scripts": {
-    "script": "electron ."
+    "start": "electron ."
   },
   "keywords": [
     "solarview",
@@ -22,5 +22,8 @@
     "panels"
   ],
   "author": "Bart Tarasewicz",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.0.1"
+  }
 }
