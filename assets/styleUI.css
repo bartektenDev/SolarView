@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: white;
 }
 
 button  {
@@ -13,6 +13,7 @@ button  {
   font-size: 16px;
   border-radius: 12px;
   cursor: hand;
+  float: left;
 }
 
 .navigate_bar {
@@ -21,9 +22,11 @@ button  {
   margin-top: 40px;
 }
 
-#menuTitle  {
-  margin-left: 200px;
-  margin-top: 100px;
+.menuTitleDiv  {
+  display: inline-block;
+  margin-top: 1px;
+  margin-left: 50px;
+  top: 200px;
   font-size: 40px;
   color: black;
 }
