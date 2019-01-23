@@ -6,24 +6,19 @@
     <meta charset="utf-8">
     <title>SolarView</title>
   </head>
-  <body>
+  <body onload="setup();">
 
     <div class="navigate_bar">
       <div class="menuTitleDiv">
         <a id="menuTitle">Dashboard</a>
       </div>
-      <button id="dash" onclick="loadDash();">Dashboard</button>
+      <button id="dash" onclick="navigate(this.id);">Dashboard</button>
       <p>
-      <button id="preferences" onclick="loadPref();">Preferences</button>
+      <button id="preferences" onclick="navigate(this.id);">Preferences</button>
     </div>
 
-    <div id="contents">
+    <div id="contents" display="dash.html">
       <!-- contents will load here -->
-    </div>
-
-    <div class="dash_content" view-content-display-dash="dash.html">
-    </div>
-    <div class="preferences_content" view-content-display-pref="preferences.html">
     </div>
 
   </body>
