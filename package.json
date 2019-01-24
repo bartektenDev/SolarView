@@ -24,7 +24,7 @@
   "author": "Bart Tarasewicz",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^4.0.1",
+    "electron": "^4.0.2",
     "electron-packager": "^13.0.1",
     "electron-prebuilt": "^1.4.13"
   },

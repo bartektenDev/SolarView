@@ -17,8 +17,8 @@ global.sharedObj = {responseGrabbed: "Initialized global variable"};
 app.on('ready', function(){
   // Create new window
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 600,
+    width: 1000,
+    height: 800,
     minWidth: 900,
     minHeight: 600,
     'node-integration': false});

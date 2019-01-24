@@ -1,6 +1,8 @@
-let btnID = "dash";
+//Copyright and all rights all reserved to Bart Tarasewicz
 
-function setup()  {
+function setup()
+{
+  readConfigFile();
   var z, i, elmnt, file, xhttp;
 	/*loop through a collection of all HTML elements:*/
 	z = document.getElementsByTagName("*");
@@ -21,16 +23,47 @@ function setup()  {
 						elmnt.innerHTML = "Page not found.";
 					}
 				}
-			}
+			};
 			xhttp.open("GET", file, true);
 			xhttp.send();
-			/*exit the function:*/
 			return;
 		}
 	}
 }
 
-function navigate(btnID) {
+function readConfigFile()
+{
+  var file = "./assets/config.p";
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", file, false);
+  rawFile.onreadystatechange = function ()
+  {
+      if(rawFile.readyState === 4)
+      {
+          if(rawFile.status === 200 || rawFile.status == 0)
+          {
+              var allText = rawFile.responseText;
+              //grab the ip value in the config.p file
+              var firstvariable = "<ip>";
+              var secondvariable = "</ip>";
+              var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig");
+              var storeRawData = allText;
+              var testRE = regExString.exec(storeRawData);
+
+              if (testRE && testRE.length > 1)
+              {
+                var ipvar = testRE[1];
+                document.getElementById("sharedDisplayIP").innerHTML = ipvar;
+                document.getElementById("readIP").innerHTML = ipvar;
+              }
+          }
+      }
+  };
+  rawFile.send(null);
+}
+
+function navigate(btnID)
+{
   //clean content view for the new data
   var myNode = document.getElementById("contents");
   while (myNode.firstChild) {
@@ -52,22 +85,23 @@ function navigate(btnID) {
           if (this.status == 200) {
             elmnt.innerHTML = this.responseText;
             if(btnID == "dash"){
-              elmnt.removeAttribute("display");
-              var att = elmnt.createAttribute("display");
-              att.value = "dash.html";
-              elmnt.setAttributeNode(att);
+              elmnt.setAttribute("display", "preferences.html");
+              document.getElementById("menuTitle").innerHTML = "Dashboard";
+              document.getElementById("dash").disabled = true;
+              document.getElementById("preferences").disabled = false;
             }else if(btnID == "preferences"){
-              elmnt.removeAttribute("display");
-              var att = elmnt.createAttribute("display");
-              att.value = "preferences.html";
-              elmnt.setAttributeNode(att);
+              elmnt.setAttribute("display", "dash.html");
+              document.getElementById("menuTitle").innerHTML = "Preferences";
+              document.getElementById("dash").disabled = false;
+              document.getElementById("preferences").disabled = true;
+              readConfigFile();
             }
           }
           if (this.status == 404) {
             elmnt.innerHTML = "Page not found.";
           }
         }
-      }
+      };
       xhttp.open("GET", file, true);
       xhttp.send();
       /*exit the function:*/
@@ -76,32 +110,23 @@ function navigate(btnID) {
   }
 }
 
-function readTextFile()
+function apply_settings()
 {
-    var file = "./assets/config.p";
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                //grab the ip value in the config.p file
-                var firstvariable = "<ip>";
-                var secondvariable = "</ip>";
-                var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig");
-                var storeRawData = allText;
-                var testRE = regExString.exec(storeRawData);
+  const fs = require('fs');
 
-                if (testRE && testRE.length > 1)
-                {
-                  document.getElementById("ip_address").innerHTML = testRE[1];
-                }
-                alert(testRE[1]);
-            }
-        }
-    }
-    rawFile.send(null);
+  let writeStream = fs.createWriteStream('./assets/config.p');
+
+  var ipAdd = document.getElementById("ip_address").value;
+  if(ipAdd != ""){
+    writeStream.write('<ip>' + ipAdd + '</ip>', 'UTF-8');
+
+    writeStream.on('finish', () => {
+      console.log('Applied new settings successfully!');
+      alert("Successfully applied new settings!");
+      readConfigFile();
+    });
+    writeStream.end();
+  }else{
+    alert("Please enter a valid IP address!");
+  }
 }
