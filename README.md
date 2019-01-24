@@ -16,5 +16,8 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 
 **Step 3.** Software should have launched! Go to preferences and enter the IP of the solar panels box! Click apply and enjoy!
 
-**UI** so far...lol
+**UI Design**
 <img src="/dashview.PNG" width="500px" title="SolarView UI">
+<div>
+</div>
+<img src="/preferencesview.PNG" width="500px" title="SolarView UI">
