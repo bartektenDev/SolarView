@@ -1,6 +1,6 @@
 # SolarView
 
-**Status:** Alpha v 1.0.0
+**Status:** Alpha v 1.0.2
 
 **What is it?**
 This is software for Enecsys Solar Panels Inverters. A better alternative compared to ALL other competitors.
