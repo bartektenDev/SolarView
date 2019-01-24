@@ -19,4 +19,4 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 **UI Design**
 
 <img src="/dashview.PNG" width="400px" title="SolarView UI">
-<img src="/preferencesview.PNG" width="00px" title="SolarView UI">
+<img src="/preferencesview.PNG" width="400px" title="SolarView UI">
