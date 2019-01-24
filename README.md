@@ -8,10 +8,6 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 
 <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="auto" title="SolarView Icon">
 
-**UI** so far...lol
-<img src="/dashview.PNG" width="auto" title="SolarView UI">
-<img src="/preferencesview.PNG" width="auto" title="SolarView UI">
-
 **How to install**
 
 **Step 1.** Open cmd or git and enter the following: git clone https://github.com/bartektenDev/SolarView.git
@@ -19,3 +15,6 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 **Step 2.** Open the solarview folder and open cmd there. Then enter the following: npm start
 
 **Step 3.** Software should have launched! Go to preferences and enter the IP of the solar panels box! Click apply and enjoy!
+
+**UI** so far...lol
+<img src="/dashview.PNG" width="500px" title="SolarView UI">
