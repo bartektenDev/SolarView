@@ -7,7 +7,7 @@
 **What is it?**
 This is software for Enecsys Solar Panels Inverters. A better alternative compared to ALL other competitors.
 It is free to use, and all license are registered to Bart Tarasewicz.
-
+<img src="/dashview.PNG" width="700px" align="left" title="SolarView UI">
 
 **How to install**
 
@@ -16,8 +16,4 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 **Step 2.** Open the solarview folder and open cmd there. Then enter the following: npm start
 
 **Step 3.** Software should have launched! Go to preferences and enter the IP of the solar panels box! Click apply and enjoy!
-
-**UI Design**
-
-<img src="/dashview.PNG" width="700px" title="SolarView UI">
-<img src="/preferencesview.PNG" width="700px" title="SolarView UI">
+<img src="/preferencesview.PNG" width="700px" align="right" title="SolarView UI">
