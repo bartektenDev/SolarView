@@ -15,3 +15,5 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 **Step 2.** Open the solarpanelUIforEncsys folder and open cmd there. Then enter the following: npm start
 
 **Step 3.** Software should have launched! Go to preferences and enter the IP of the solar panels box! Click apply and enjoy!
+
+$
