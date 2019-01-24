@@ -6,7 +6,7 @@
 This is software for Enecsys Solar Panels Inverters. A better alternative compared to ALL other competitors.
 It is free to use, and all license are registered to Bart Tarasewicz.
 
-<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="auto" title="SolarView Icon">
+<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="300px" title="SolarView Icon">
 
 **How to install**
 
