@@ -4,10 +4,18 @@
     <link rel="stylesheet" type="text/css" href="assets/styleUI.css">
     <script src="assets/dataload.js"></script>
     <meta charset="utf-8">
+    <style>
+
+  </style>
     <title>SolarView</title>
   </head>
+  <div class="header">
+  <a href="#default" class="logo">SolarView</a>
+  <div class="top_bar_view">
+    <img src="./assets/prjLogo.png" width="50px" height="50px" id="">
+  </div>
+</div>
   <body onload="setup();">
-
     <div class="navigate_bar">
       <div class="menuTitleDiv">
         <a id="menuTitle">Dashboard</a>
@@ -17,7 +25,7 @@
       <button id="preferences" onclick="navigate(this.id);">Preferences</button>
     </div>
 
-    <div id="contents" display="dash.html">
+    <div id="contents" class="contentView" display="dash.html">
       <!-- contents will load here -->
     </div>
 

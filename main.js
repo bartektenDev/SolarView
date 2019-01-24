@@ -3,7 +3,7 @@ const path = require('path');
 const url = require('url');
 
 // SET ENV
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = 'development1';
 
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
@@ -17,8 +17,8 @@ global.sharedObj = {responseGrabbed: "Initialized global variable"};
 app.on('ready', function(){
   // Create new window
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 600,
+    width: 1300,
+    height: 900,
     minWidth: 900,
     minHeight: 600,
     'node-integration': false});
