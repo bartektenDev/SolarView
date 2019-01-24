@@ -4,6 +4,7 @@
 <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="150px" align="right" title="SolarView Icon">
 
 <img src="/dashview.PNG" width="400px" align="left" title="SolarView UI">
+
 **What is it?**
 This is software for Enecsys Solar Panels Inverters. A better alternative compared to ALL other competitors.
 It is free to use, and all license are registered to Bart Tarasewicz.
