@@ -8,6 +8,10 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 
 <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="auto" title="SolarView Icon">
 
+**UI** so far...lol
+<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="auto" title="SolarView UI">
+<img src="/dashview.PNG" width="auto" title="SolarView UI">
+
 **How to install**
 
 **Step 1.** Open cmd or git and enter the following: git clone https://github.com/bartektenDev/SolarView.git
