@@ -1,4 +1,4 @@
-# SolarView <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="150px" float="right" title="SolarView Icon">
+# SolarView <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Industry-Solar-Panel-icon.png" width="150px" align="right" title="SolarView Icon">
 
 **Status:** Alpha v 1.0.2
 
