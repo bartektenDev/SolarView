@@ -3,6 +3,12 @@
 function setup()
 {
   readConfigFile();
+  step_display();
+  readWeather();
+}
+
+function step_display()
+{
   var z, i, elmnt, file, xhttp;
 	/*loop through a collection of all HTML elements:*/
 	z = document.getElementsByTagName("*");
@@ -53,8 +59,14 @@ function readConfigFile()
               if (testRE && testRE.length > 1)
               {
                 var ipvar = testRE[1];
-                document.getElementById("sharedDisplayIP").innerHTML = ipvar;
-                document.getElementById("readIP").innerHTML = ipvar;
+                if (document.getElementById("sharedDisplayIP"))
+                {
+                  document.getElementById("sharedDisplayIP").innerHTML = ipvar;
+                }
+                if (document.getElementById("readIP"))
+                {
+                  document.getElementById("readIP").innerHTML = ipvar;
+                }
               }
           }
       }
@@ -89,6 +101,7 @@ function navigate(btnID)
               document.getElementById("menuTitle").innerHTML = "Dashboard";
               document.getElementById("dash").disabled = true;
               document.getElementById("preferences").disabled = false;
+              readConfigFile();
             }else if(btnID == "preferences"){
               elmnt.setAttribute("display", "dash.html");
               document.getElementById("menuTitle").innerHTML = "Preferences";
@@ -143,12 +156,13 @@ function grabData()
 
 function readData()
 {
-  Http.open("GET", "http://" + ip + "/ajax.xml");
+  Http.open("GET", ip + "/ajax.xml");
   Http.send();
   Http.onreadystatechange=(e)=>{
     //scan the data and then identify whether we see how many devices
     //are connected to the network and then display that to the User
     var allText = Http.responseText;
+    alert(allText);
     //grab the ip value in the config.p file
     var firstvariable = "<devicesInNetwork>";
     var secondvariable = "</devicesInNetwork>";
@@ -183,4 +197,24 @@ function apply_settings()
   }else{
     alert("Please enter a valid IP address!");
   }
+}
+
+function readWeather()
+{
+  ajax({
+    url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
+    type: 'GET',
+    dataType: 'jsonp',
+    jsonp: 'jsonpcallback',
+    data: {
+      product: 'observation',
+      zipcode: '60157',
+      oneobservation: 'true',
+      app_id: 'P39eaP1wwFbkFh6I4P9P',
+      app_code: '4C1JR3sKWpq8UBHMoHB8dw'
+    },
+    success: function (data) {
+      alert(JSON.stringify(data));
+    }
+  });
 }
