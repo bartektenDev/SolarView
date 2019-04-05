@@ -1,15 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-  <script src="assets/dataload.js"></script>
+<script src="assets/dataload.js"></script>
   <body>
     <div class="container_box">
-      Connected IP: <a id="readIP"></a>
-	  <p>
-      Change IP: <input id="ip_address"></input><br>
+      <a>Connected IP: </a><a id="readIP"></a>
+	    <p>
+      <a>Change IP: </a><input id="ip_address"></input><br>
       <p>
-    <p>
-    <button id="save" onclick="apply_settings();">Apply</button>
-    <p>
-	</div>
+      <button id="save" onclick="apply_settings();">Apply</button>
+      <p>
+	  </div>
+
+    <div class="container_box">
+      <a>Current Zip code: </a><a id="readZIP"></a>
+	    <p>
+      <a>Change Zip Code: </a><input id="zipcodebox"></input><br>
+      <p>
+      <button id="save" onclick="apply_settings2();">Apply</button>
+      <p>
+	  </div>
+
   </body>
 </html>

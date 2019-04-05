@@ -4,7 +4,7 @@ function setup()
 {
   readConfigFile();
   step_display();
-  readWeather();
+  dataPing();
 }
 
 function step_display()
@@ -24,6 +24,7 @@ function step_display()
 					if (this.status == 200) {
 						elmnt.innerHTML = this.responseText;
             elmnt.setAttribute("display", "preferences.html");
+            document.getElementById("dash").disabled = true;
 					}
 					if (this.status == 404) {
 						elmnt.innerHTML = "Page not found.";
@@ -39,7 +40,7 @@ function step_display()
 
 function readConfigFile()
 {
-  var file = "./assets/config.p";
+  var file = "./assets/configip.p";
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", file, false);
   rawFile.onreadystatechange = function ()
@@ -90,7 +91,7 @@ function navigate(btnID)
     /*search for elements with a certain atrribute:*/
     file = elmnt.getAttribute("display");
     if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
+      /*make an HT*TP request using the attribute value as the file name:*/
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4) {
@@ -125,7 +126,7 @@ function navigate(btnID)
 
 function grabData()
 {
-  var file = "./assets/config.p";
+  var file = "./assets/configip.p";
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", file, false);
   rawFile.onreadystatechange = function ()
@@ -154,9 +155,40 @@ function grabData()
   rawFile.send(null);
 }
 
+function grabData2()
+{
+  var file = "./assets/configzip.p";
+  var rawFile = new XMLHttpRequest();
+  rawFile.open("GET", file, false);
+  rawFile.onreadystatechange = function ()
+  {
+      if(rawFile.readyState === 4)
+      {
+          if(rawFile.status === 200 || rawFile.status == 0)
+          {
+              var allText = rawFile.responseText;
+              //grab the ip value in the config.p file
+              var firstvariable = "<zip>";
+              var secondvariable = "</zip>";
+              var regExString = new RegExp("(?:"+firstvariable+")(.*?)(?:"+secondvariable+")", "ig");
+              var storeRawData = allText;
+              var testRE = regExString.exec(storeRawData);
+
+              if (testRE && testRE.length > 1)
+              {
+                var ipvar = testRE[1];
+                ip = ipvar;
+              }
+              readData();
+          }
+      }
+  };
+  rawFile.send(null);
+}
+
 function readData()
 {
-  Http.open("GET", ip + "/ajax.xml");
+  Http.open("GET", "http://" + ip + "/ajax.xml");
   Http.send();
   Http.onreadystatechange=(e)=>{
     //scan the data and then identify whether we see how many devices
@@ -182,7 +214,7 @@ function apply_settings()
 {
   const fs = require('fs');
 
-  let writeStream = fs.createWriteStream('./assets/config.p');
+  let writeStream = fs.createWriteStream('./assets/configip.p');
 
   var ipAdd = document.getElementById("ip_address").value;
   if(ipAdd != ""){
@@ -192,6 +224,7 @@ function apply_settings()
       console.log('Applied new settings successfully!');
       alert("Successfully applied new settings!");
       readConfigFile();
+      dataPing();
     });
     writeStream.end();
   }else{
@@ -199,22 +232,50 @@ function apply_settings()
   }
 }
 
-function readWeather()
+function apply_settings2()
 {
-  ajax({
-    url: 'https://weather.cit.api.here.com/weather/1.0/report.json',
-    type: 'GET',
-    dataType: 'jsonp',
-    jsonp: 'jsonpcallback',
-    data: {
-      product: 'observation',
-      zipcode: '60157',
-      oneobservation: 'true',
-      app_id: 'P39eaP1wwFbkFh6I4P9P',
-      app_code: '4C1JR3sKWpq8UBHMoHB8dw'
-    },
-    success: function (data) {
-      alert(JSON.stringify(data));
+  const fs = require('fs');
+
+  let writeStream = fs.createWriteStream('./assets/configzip.p');
+
+  var zipAdd = document.getElementById("zipcodebox").value;
+  if(zipAdd != ""){
+    writeStream.write('<zip>' + zipAdd + '</zip>', 'UTF-8');
+
+    writeStream.on('finish', () => {
+      console.log('Applied new settings successfully!');
+      alert("Successfully applied new settings!");
+      readConfigFile();
+    });
+    writeStream.end();
+  }else{
+
+  }
+}
+
+function dataPing() {
+    //start checking data connection to server
+    var started = new Date().getTime();
+    var host = document.getElementById("sharedDisplayIP").innerHTML;
+    //var port = 8080;
+    var http = new XMLHttpRequest();
+
+    document.getElementById("connectionStatusIcon").src = "assets/cloud.gif";
+
+    http.open("GET", "http://" + host, /*async*/true);
+    http.onreadystatechange = function() {
+      if (http.readyState == 4) {
+        var ended = new Date().getTime();
+        var milliseconds = ended - started;
+        document.getElementById("connectionStatusIcon").src = "assets/connectedicon.png";
+      }else{
+        document.getElementById("connectionStatusIcon").src = "assets/connectionfailed2.png";
+      }
+    };
+    try {
+      http.send(null);
+    } catch(exception) {
+      // this is expected
+      alert('failed');
     }
-  });
 }

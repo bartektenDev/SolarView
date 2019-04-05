@@ -56,7 +56,7 @@ button  {
 /* everything below = Top Bar */
 .header {
   overflow: hidden;
-  background: linear-gradient(to top, #19b5fe 20%, #66a6ff 80%);
+  background: #fff;
   padding: 15px 20px;
 }
 
@@ -88,6 +88,11 @@ button  {
 
 .top_bar_view {
   float: right;
+}
+
+.top_bar_view2 {
+  float: left;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 500px) {
