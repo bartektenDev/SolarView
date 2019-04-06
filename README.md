@@ -17,6 +17,6 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 
 **UI Design**
 
-<img src="assets/dash2.png" width="800px" title="SolarView UI">
+<img src="assets/dash2.PNG" width="800px" title="SolarView UI">
 
-<img src="assets/pref2.png" width="800px" title="SolarView UI">
+<img src="assets/pref2.PNG" width="800px" title="SolarView UI">
