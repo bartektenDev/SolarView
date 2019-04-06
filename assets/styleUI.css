@@ -1,7 +1,7 @@
 * {box-sizing: border-box;}
 
 body {
-  background: #6bb9f0;
+  background: #c6e7ff;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -21,7 +21,8 @@ button  {
 }
 
 .container_box  {
-  background-color: #efefef;
+  background-color: #fff;
+  border-color: coral;
   border: none;
   color: black;
   padding: 15px 32px;
@@ -51,6 +52,8 @@ button  {
 
 .contentView  {
   margin-left: 200px;
+  border-color: coral;
+  border-radius: 10px;
 }
 
 /* everything below = Top Bar */
@@ -116,12 +119,12 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 /* everything above = Table UI for devices */

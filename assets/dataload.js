@@ -207,6 +207,8 @@ function readData()
       var devicesConnected = testRE[1];
       document.getElementById("numOfDevices").innerHTML = devicesConnected;
     }
+
+
   }
 }
 
@@ -261,15 +263,24 @@ function dataPing() {
     var http = new XMLHttpRequest();
 
     document.getElementById("connectionStatusIcon").src = "assets/cloud.gif";
+    document.getElementById("sharedDisplayIP").style.backgroundColor= "#efefef";
 
     http.open("GET", "http://" + host, /*async*/true);
     http.onreadystatechange = function() {
       if (http.readyState == 4) {
         var ended = new Date().getTime();
         var milliseconds = ended - started;
-        document.getElementById("connectionStatusIcon").src = "assets/connectedicon.png";
+
+        if(milliseconds >= 20000) {
+          document.getElementById("connectionStatusIcon").src = "assets/connectionfailed2.png";
+          document.getElementById("sharedDisplayIP").style.backgroundColor= "#f05d58";
+        }else{
+          document.getElementById("connectionStatusIcon").src = "assets/connectedicon.png";
+          document.getElementById("sharedDisplayIP").style.backgroundColor= "#efefef";
+        }
       }else{
         document.getElementById("connectionStatusIcon").src = "assets/connectionfailed2.png";
+        document.getElementById("sharedDisplayIP").style.backgroundColor= "#f05d58";
       }
     };
     try {
