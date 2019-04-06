@@ -9,14 +9,23 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 
 **How to install**
 
-**Step 1.** Open cmd or git and enter the following: 
+**Step 1.** Open cmd or git console and enter the following: 
 ```
 git clone https://github.com/bartektenDev/SolarView.git
+sudo npm install
 ```
 
-**Step 2.** Open the solarview folder and open cmd there. Then enter the following: npm start
+If you run into any errors from running (sudo npm install) then run the following to fix errors
+```
+sudo npm audit fix
+```
 
-**Step 3.** Software should have launched! Go to preferences and enter the IP of the solar panels box! Click apply and enjoy!
+**Step 2.** Open the SolarView folder and open cmd or git console there. Then enter the following:
+```
+npm start
+```
+
+**Step 3.** Software should have launched! Go to preferences and enter the IP of the solar panels box! Click apply and enjoy! There's also additional features so check those out too.
 
 **UI Design**
 
