@@ -9,7 +9,10 @@ It is free to use, and all license are registered to Bart Tarasewicz.
 
 **How to install**
 
-**Step 1.** Open cmd or git and enter the following: git clone https://github.com/bartektenDev/SolarView.git
+**Step 1.** Open cmd or git and enter the following: 
+```
+git clone https://github.com/bartektenDev/SolarView.git
+```
 
 **Step 2.** Open the solarview folder and open cmd there. Then enter the following: npm start
 
